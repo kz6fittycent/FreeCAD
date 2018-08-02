@@ -23,9 +23,9 @@ parts:
     source: https://github.com/FreeCAD/FreeCAD
     source-type: git
     plugin: cmake
-      configflags: 
-        - -DFREECAD_USE_EXTERNAL_PIVY=1
-        - -DCMAKE_BUILD_TYPE=Release
+    configflags: 
+      - -DFREECAD_USE_EXTERNAL_PIVY=1
+      - -DCMAKE_BUILD_TYPE=Release
     after: [desktop-qt4]
     
     build-packages:
@@ -80,4 +80,5 @@ parts:
       - liboce-visualization-dev 
       - libmedc-dev 
       - libvtk6-dev 
-      - libproj-dev      
+      - libproj-dev 
+        

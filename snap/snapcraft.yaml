@@ -1,0 +1,84 @@
+name: freecad
+version: '0.17.1'
+summary: FreeCAD is a general purpose feature-based, parametric 3D modeler
+description: |
+  FreeCAD is a general purpose feature-based, parametric 3D modeler for CAD, MCAD, CAx, CAE and PLM, aimed directly at mechanical engineering and product design but also fits a wider range of uses in engineering, such as architecture or other engineering specialties. It is 100% Open Source (LGPL2+ license) and extremely modular, allowing for very advanced extension and customization.
+grade: devel
+confinement: devmode
+
+
+apps: 
+  freecad:
+    command: desktop-launch $SNAP/bin/freecad
+    desktop: /usr/share/applications/freecad.desktop
+    plugs:
+      - home
+      - network
+      - unity7
+      - x11
+      - desktop
+     
+parts:
+  my-part:
+    source: https://github.com/FreeCAD/FreeCAD
+    source-type: git
+    plugin: cmake
+      configflags: 
+        - -DFREECAD_USE_EXTERNAL_PIVY=1
+        - -DCMAKE_BUILD_TYPE=Release
+    after: [desktop-qt4]
+    
+    build-packages:
+      - build-essential 
+      - cmake 
+      - make
+      
+    stage-packages:
+      - python 
+      - python-matplotlib 
+      - libtool 
+      - libcoin80-dev 
+      - libsoqt4-dev 
+      - libxerces-c-dev 
+      - libboost-dev 
+      - libboost-filesystem-dev 
+      - libboost-regex-dev 
+      - libboost-program-options-dev 
+      - libboost-signals-dev 
+      - libboost-thread-dev 
+      - libboost-python-dev 
+      - libqt4-dev 
+      - libqt4-opengl-dev 
+      - qt4-dev-tools 
+      - python-dev 
+      - python-pyside 
+      - pyside-tools 
+      - libeigen3-dev 
+      - libqtwebkit-dev 
+      - libshiboken-dev 
+      - libpyside-dev 
+      - libode-dev 
+      - swig 
+      - libzipios++-dev 
+      - libfreetype6-dev 
+      - liboce-foundation-dev 
+      - liboce-modeling-dev 
+      - liboce-ocaf-dev 
+      - liboce-visualization-dev 
+      - liboce-ocaf-lite-dev 
+      - libsimage-dev 
+      - checkinstall 
+      - python-pivy 
+      - python-qt4 
+      - doxygen 
+      - libspnav-dev 
+      - oce-draw 
+      - liboce-foundation-dev 
+      - liboce-modeling-dev 
+      - liboce-ocaf-dev 
+      - liboce-ocaf-lite-dev 
+      - liboce-visualization-dev 
+      - libmedc-dev 
+      - libvtk6-dev 
+      - libproj-dev 
+        

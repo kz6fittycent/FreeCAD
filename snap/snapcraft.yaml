@@ -80,5 +80,4 @@ parts:
       - liboce-visualization-dev 
       - libmedc-dev 
       - libvtk6-dev 
-      - libproj-dev 
-        
+      - libproj-dev      
